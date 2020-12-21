@@ -1,0 +1,19 @@
+<p
+  [style.backgroundColor]="color"
+  [hidden]="isHidden"
+>first works!</p>
+
+<input
+  (change)="afficherContenuDeMonInput(monInput.value)"
+  #monInput
+  type="text" class="form-control">
+
+  <p>La valeur de mon input est : {{inputValue}}</p>
+
+<button
+  (click)="showHide()"
+  class="btn btn-danger">
+  {{message}}
+</button>
+
+<app-second></app-second>
