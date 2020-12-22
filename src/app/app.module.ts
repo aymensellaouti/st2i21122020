@@ -15,6 +15,7 @@ import { CvComponent } from './cv/cv/cv.component';
 import { ListComponent } from './cv/list/list.component';
 import { ItemComponent } from './cv/item/item.component';
 import { CardComponent } from './cv/card/card.component';
+import { TestNgStyleComponent } from './directives/test-ng-style/test-ng-style.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CardComponent } from './cv/card/card.component';
     ListComponent,
     ItemComponent,
     CardComponent,
+    TestNgStyleComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
