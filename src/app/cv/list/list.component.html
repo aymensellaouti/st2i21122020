@@ -1,0 +1,13 @@
+<ol class="list-group">
+  <li class="list-group-item">
+    <app-item
+      (selectPersonne)="forwardPersonne($event)"
+    [personne]="personnes[0]"></app-item>
+  </li>
+  <li class="list-group-item">
+    <app-item
+    (selectPersonne)="forwardPersonne($event)"
+    [personne]="personnes[1]"></app-item>
+  </li>
+</ol>
+
