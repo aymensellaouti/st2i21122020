@@ -8,6 +8,7 @@ import { Personne } from './../model/personne';
 })
 export class CvComponent implements OnInit {
   selectedPersonne: Personne = null;
+  date = new Date();
   constructor() { }
 
   ngOnInit(): void {

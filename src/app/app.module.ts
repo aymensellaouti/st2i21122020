@@ -19,6 +19,8 @@ import { TestNgStyleComponent } from './directives/test-ng-style/test-ng-style.c
 import { WordComponent } from './pages/word/word.component';
 import { TestNgClassComponent } from './directives/test-ng-class/test-ng-class.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { RainbowDirective } from './directives/rainbow.directive';
+import { EuroDollarPipe } from './pipes/euro-dollar.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     WordComponent,
     TestNgClassComponent,
     HighlightDirective,
+    RainbowDirective,
+    EuroDollarPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
