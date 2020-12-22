@@ -1,6 +1,6 @@
 <div (click)="selectItem()">
   <img
-    src="assets/images/{{ personne?.path }}"
+    src="assets/images/{{ personne?.path | defaultImage }}"
     alt="{{ personne?.name }}"
     width="50px"
     heigth="50px"

@@ -1,8 +1,7 @@
-
 <div class="row">
   <div class="col">
     <div class="alert alert-primary">
-      {{date | date:'full' | titlecase}}
+      {{ date | date: "full" | titlecase }}
     </div>
     <app-list (forwardSelectedPersonne)="selectPersonne($event)"></app-list>
   </div>
@@ -10,7 +9,3 @@
     <app-card [personne]="selectedPersonne"></app-card>
   </div>
 </div>
-
-{{1|euroDollar:0}}
-<hr>
-{{1|euroDollar:1}}

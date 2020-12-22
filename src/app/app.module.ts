@@ -21,6 +21,9 @@ import { TestNgClassComponent } from './directives/test-ng-class/test-ng-class.c
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { EuroDollarPipe } from './pipes/euro-dollar.pipe';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { FakeService } from './services/fake.service';
+import { TodoComponent } from './todo/pages/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +45,11 @@ import { EuroDollarPipe } from './pipes/euro-dollar.pipe';
     HighlightDirective,
     RainbowDirective,
     EuroDollarPipe,
+    DefaultImagePipe,
+    TodoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [FakeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
