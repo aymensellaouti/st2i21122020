@@ -29,6 +29,9 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { FakeService } from './services/fake.service';
 import { TodoComponent } from './todo/pages/todo/todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RouterSimulatorComponent } from './components/router-simulator/router-simulator.component';
+import { DetailsPersonneComponent } from './cv/pages/details-personne/details-personne.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
     DefaultImagePipe,
     TodoComponent,
     EmbaucheComponent,
+    HeaderComponent,
+    RouterSimulatorComponent,
+    DetailsPersonneComponent,
   ],
   imports: [
     BrowserModule,
