@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Personne } from '../model/personne';
 import { EmbaucheService } from '../services/embauche.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -12,7 +13,8 @@ export class CardComponent implements OnInit {
   @Input() personne: Personne = null;
   constructor(
     private embaucheService: EmbaucheService,
-    private tostr: ToastrService
+    private tostr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -30,5 +32,8 @@ export class CardComponent implements OnInit {
     // Vérifier si on a embaucher la personne ou pas
     // Si oui message success
     // Sinon erreur
+  }
+  detail() {
+    this.router.navigate(['cv', this.personne.id]);
   }
 }
