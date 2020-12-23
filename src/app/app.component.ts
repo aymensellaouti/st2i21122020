@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+/* import { ToastrService } from 'ngx-toastr'; */
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,9 @@ import { ToastrService } from 'ngx-toastr';
 export class AppComponent implements OnInit {
   title = 'st2i21122020';
 
-  constructor(private tostrService: ToastrService) {}
+  constructor(/* private tostrService: ToastrService */) {}
   ngOnInit() {
-    console.log('app');
-    this.tostrService.info('Bienvenu chez vous :)');
+    console.log('app');/*
+    this.tostrService.info('Bienvenu chez vous :)'); */
   }
 }
