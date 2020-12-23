@@ -36,6 +36,8 @@ import { AddPersonneComponent } from './cv/pages/add-personne/add-personne.compo
 import { AdminComponent } from './pages/admin/admin.component';
 import { FrontComponent } from './pages/front/front.component';
 import { Nf404Component } from './pages/nf404/nf404.component';
+import { TestFormComponent } from './components/test-form/test-form.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { Nf404Component } from './pages/nf404/nf404.component';
     AdminComponent,
     FrontComponent,
     Nf404Component,
+    TestFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { FrontComponent } from './pages/front/front.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { FilsComponent } from './components/fils/fils.component';
 import { Nf404Component } from './pages/nf404/nf404.component';
+import { LoginComponent } from './pages/login/login.component';
 
 // cv/add
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
           { path: ':id', component: DetailsPersonneComponent },
         ],
       },
+      { path: 'login', component: LoginComponent },
       { path: 'todo', component: TodoComponent },
       { path: 'fils', component: FilsComponent },
       { path: 'word', component: WordComponent },
