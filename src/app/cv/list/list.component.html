@@ -6,10 +6,9 @@
       'list-group-item-info': isOdd,
       'list-group-item-primary': !isOdd
     }"
-    >
-    <app-item
-      (selectPersonne)="forwardPersonne($event)"
-      [personne]="personne"></app-item>
+  >
+    <!--     (selectPersonne)="forwardPersonne($event)"
+ -->
+    <app-item [personne]="personne"></app-item>
   </li>
 </ol>
-

@@ -3,10 +3,14 @@
     <div class="alert alert-primary">
       {{ date | date: "full" | titlecase }}
     </div>
-    <app-list (forwardSelectedPersonne)="selectPersonne($event)"></app-list>
+    <div *ngIf="nbClik" class="alert alert-warning">
+     Le nombre de click est {{nbClik}}
+    </div>
+    <!--     (forwardSelectedPersonne)="selectPersonne($event)"-->
+    <app-list></app-list>
   </div>
   <div class="col">
-    <app-card [personne]="selectedPersonne"></app-card>
+    <app-card></app-card>
   </div>
 </div>
 <div class="row">

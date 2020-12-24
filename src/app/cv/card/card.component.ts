@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Personne } from '../model/personne';
 import { EmbaucheService } from '../services/embauche.service';
 import { Router } from '@angular/router';
+import { CvService } from '../services/cv.service';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-card',
@@ -14,10 +16,15 @@ export class CardComponent implements OnInit {
   constructor(
     private embaucheService: EmbaucheService,
     private tostr: ToastrService,
-    private router: Router
+    private router: Router,
+    private cvService: CvService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cvService.selectPersonneSubject
+      .pipe(distinctUntilChanged())
+      .subscribe((personne) => (this.personne = personne));
+  }
   embaucher() {
     //Appeler la methode d embauche su service
     if (this.embaucheService.embaucher(this.personne)) {

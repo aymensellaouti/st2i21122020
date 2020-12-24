@@ -1,0 +1,20 @@
+<p>slider works!</p>
+
+<!-- <img
+  src="assets/images/{{ path }}"
+  alt="image Slider"
+  [ngStyle]="{
+    width: width + 'px',
+    height: heigth + 'px'
+  }"
+  [ngClass]="{ 'rounded-circle': isRounded }"
+/> -->
+<img
+  src="assets/images/{{ imgObservable | async }}"
+  alt="image Slider"
+  [ngStyle]="{
+    width: width * 2 + 'px',
+    height: heigth * 2 + 'px'
+  }"
+  [ngClass]="{ 'rounded-circle': isRounded }"
+/>

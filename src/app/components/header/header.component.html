@@ -24,7 +24,14 @@
         class="nav-item nav-link"
         [routerLink]="['/cv']"
         routerLinkActive="active text-primary"
+        [routerLinkActiveOptions]="{ exact: true }"
         >Cv</a
+      >
+      <a
+        class="nav-item nav-link"
+        [routerLink]="['/cv/add']"
+        routerLinkActive="active text-primary"
+        >Add personne</a
       >
       <a
         class="nav-item nav-link"
