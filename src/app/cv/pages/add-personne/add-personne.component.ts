@@ -18,11 +18,14 @@ export class AddPersonneComponent implements OnInit {
 
   ngOnInit(): void {}
   addPersonne(formulaire: NgForm) {
-    console.log(formulaire);
-    this.cvService.addPersonne(formulaire.value);
-    this.tostr.success(
-      `${formulaire.value.firstname} ${formulaire.value.name} a été ajouté avec succès`
+    this.cvService.addPersonne(formulaire.value).subscribe(
+      (personne) => {
+        this.tostr.success(
+          `${personne.firstname} ${personne.name} a été ajouté avec succès`
+        );
+        this.router.navigate(['cv']);
+      },
+      (erreur) => this.tostr.error('Problème veuillez contacter l admin')
     );
-    this.router.navigate(['cv']);
   }
 }

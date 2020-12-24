@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Personne } from '../model/personne';
@@ -39,7 +39,21 @@ export class CvService {
   findPersonneById(id: number): Observable<Personne> {
     return this.http.get<Personne>(PERSONNE_API + id);
   }
-  deletePersonne(personne: Personne): boolean {
+
+  deletPersonneById(id: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    /*     const params = new HttpParams().set('access_token', token); */
+    const headers = new HttpHeaders().set('Authorization', token);
+    return this.http.delete<Personne>(PERSONNE_API + id, { headers });
+  }
+  addPersonne(personne: Personne) {
+    const token = localStorage.getItem('token');
+    /*     const params = new HttpParams().set('access_token', token); */
+    const headers = new HttpHeaders().set('Authorization', token);
+    return this.http.post<Personne>(PERSONNE_API, personne, { headers });
+  }
+
+  deleteFakePersonne(personne: Personne): boolean {
     const index = this.personnes.indexOf(personne);
     if (index === -1) {
       return false;
@@ -47,7 +61,7 @@ export class CvService {
     this.personnes.splice(index, 1);
     return true;
   }
-  addPersonne(personne: Personne) {
+  addFakePersonne(personne: Personne) {
     this.personnes.push(personne);
   }
 

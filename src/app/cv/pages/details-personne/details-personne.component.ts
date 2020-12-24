@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Personne } from '../../model/personne';
 import { CvService } from '../../services/cv.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-details-personne',
@@ -15,7 +16,8 @@ export class DetailsPersonneComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private cvService: CvService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +29,7 @@ export class DetailsPersonneComponent implements OnInit {
     */
     this.activatedRoute.params.subscribe((mesParams) => {
       this.cvService.findPersonneById(+mesParams.id).subscribe(
-        (personne) => this.personne = personne,
+        (personne) => (this.personne = personne),
         (erreur) => {
           this.toastr.error(`Personne innexistante`);
           this.router.navigate(['cv']);
@@ -36,11 +38,14 @@ export class DetailsPersonneComponent implements OnInit {
     });
   }
   deletePersonne() {
-    if (this.cvService.deletePersonne(this.personne)) {
-      this.toastr.success(`${this.personne.name} supprimé avec succès`);
-      this.router.navigate(['cv']);
-    } else {
-      this.toastr.error('Veuillez contacter l admin');
-    }
+    this.cvService.deletPersonneById(this.personne.id).subscribe(
+      (success) => {
+        this.toastr.success(`${this.personne.name} supprimé avec succès`);
+        this.router.navigate(['cv']);
+      },
+      (error) => {
+        this.toastr.error('Veuillez contacter l admin');
+      }
+    );
   }
 }
