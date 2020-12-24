@@ -12,6 +12,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { FilsComponent } from './components/fils/fils.component';
 import { Nf404Component } from './pages/nf404/nf404.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
 
 // cv/add
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
         path: 'cv',
         children: [
           { path: '', component: CvComponent },
-          { path: 'add', component: AddPersonneComponent },
+          { path: 'add', component: AddPersonneComponent, canActivate: [AuthGuardGuard] },
           { path: ':id', component: DetailsPersonneComponent },
         ],
       },

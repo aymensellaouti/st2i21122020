@@ -41,16 +41,10 @@ export class CvService {
   }
 
   deletPersonneById(id: number): Observable<any> {
-    const token = localStorage.getItem('token');
-    /*     const params = new HttpParams().set('access_token', token); */
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.delete<Personne>(PERSONNE_API + id, { headers });
+    return this.http.delete<Personne>(PERSONNE_API + id);
   }
   addPersonne(personne: Personne) {
-    const token = localStorage.getItem('token');
-    /*     const params = new HttpParams().set('access_token', token); */
-    const headers = new HttpHeaders().set('Authorization', token);
-    return this.http.post<Personne>(PERSONNE_API, personne, { headers });
+    return this.http.post<Personne>(PERSONNE_API, personne);
   }
 
   deleteFakePersonne(personne: Personne): boolean {

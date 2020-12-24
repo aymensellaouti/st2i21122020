@@ -42,6 +42,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { TestObservableComponent } from './components/test-observable/test-observable.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { TestHttpComponent } from './components/test-http/test-http.component';
+import { AuthInterceptorProvider } from './interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,7 @@ import { TestHttpComponent } from './components/test-http/test-http.component';
     ToastrModule.forRoot(),
     HttpClientModule,
   ], // ToastrModule added,
-  providers: [FakeService],
+  providers: [FakeService, AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
