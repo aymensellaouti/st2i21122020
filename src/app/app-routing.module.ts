@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { FirstComponent } from './components/first/first.component';
-import { CvComponent } from './cv/cv/cv.component';
-import { DetailsPersonneComponent } from './cv/pages/details-personne/details-personne.component';
 import { ColorComponent } from './pages/color/color.component';
 import { WordComponent } from './pages/word/word.component';
 import { TodoComponent } from './todo/pages/todo/todo.component';
-import { AddPersonneComponent } from './cv/pages/add-personne/add-personne.component';
 import { FrontComponent } from './pages/front/front.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { FilsComponent } from './components/fils/fils.component';
 import { Nf404Component } from './pages/nf404/nf404.component';
 import { LoginComponent } from './pages/login/login.component';
-import { AuthGuardGuard } from './guards/auth-guard.guard';
 
 // cv/add
 const routes: Routes = [
@@ -23,11 +19,7 @@ const routes: Routes = [
       { path: '', component: FirstComponent },
       {
         path: 'cv',
-        children: [
-          { path: '', component: CvComponent },
-          { path: 'add', component: AddPersonneComponent, canActivate: [AuthGuardGuard] },
-          { path: ':id', component: DetailsPersonneComponent },
-        ],
+        loadChildren: () => import('./cv/cv.module').then((m) => m.CvModule),
       },
       { path: 'login', component: LoginComponent },
       { path: 'todo', component: TodoComponent },
@@ -45,7 +37,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
