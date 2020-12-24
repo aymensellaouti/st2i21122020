@@ -26,11 +26,13 @@ export class DetailsPersonneComponent implements OnInit {
         Si ko redirige vers la liste des cvs et j'affiche un toast erreur
     */
     this.activatedRoute.params.subscribe((mesParams) => {
-      this.personne = this.cvService.findPersonneById(+mesParams.id);
-      if (!this.personne) {
-        this.toastr.error(`Personne innexistante`);
-        this.router.navigate(['cv']);
-      }
+      this.cvService.findPersonneById(+mesParams.id).subscribe(
+        (personne) => this.personne = personne,
+        (erreur) => {
+          this.toastr.error(`Personne innexistante`);
+          this.router.navigate(['cv']);
+        }
+      );
     });
   }
   deletePersonne() {
